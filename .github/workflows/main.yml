@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - name: create a ECS 
-      - uses: ./path/to/
+        uses: ./path/to/
       - name: start execute
         run: |
           #git clone https://github.com/terraform-hw/hw-create-ecs1.git

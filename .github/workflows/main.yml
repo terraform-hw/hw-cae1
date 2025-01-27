@@ -12,7 +12,7 @@ jobs:
     
     steps:
       - name: create a cae 
-        uses: ./
+        run: ls -l 
       - name: start execute
         run: |
           #git clone https://github.com/terraform-hw/hw-create-ecs1.git

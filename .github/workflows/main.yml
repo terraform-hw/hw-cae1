@@ -14,8 +14,10 @@ jobs:
       - name: create a cae 
         run: ls -l 
       - name: start execute
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          #git clone https://github.com/terraform-hw/hw-create-ecs1.git
+          git clone https://github.com/terraform-hw/hw-cae1.git
           #cd hw-create-ecs1
           ls -l 
           wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg

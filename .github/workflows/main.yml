@@ -13,8 +13,8 @@ jobs:
     
     steps:
       - name: create a ECS 
-      - uses: terraform-hw/hw-cae1@main
-        run: |
+      - uses: ./path/to/
+      - run: |
           #git clone https://github.com/terraform-hw/hw-create-ecs1.git
           #cd hw-create-ecs1
           wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg

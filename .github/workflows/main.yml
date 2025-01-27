@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:      
-      - name: create a cae 
-        run: ls -l 
       - name: start execute
         env:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}

@@ -1,1 +1,25 @@
 
+name: Run commands on different operating systems
+on: [push]
+env:
+  HW_ACCESS_KEY: ${{ secrets.HWAK1 }}
+  HW_SECRET_KEY: ${{ secrets.HWSK1 }}
+  HW_REGION_NAME: "me-east-1"
+jobs:
+
+  Run-npm-on-Ubuntu:
+    name: Run docker Ubuntu
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: create a ECS 
+      - uses: terraform-hw/hw-cae1@main
+        run: |
+          #git clone https://github.com/terraform-hw/hw-create-ecs1.git
+          #cd hw-create-ecs1
+          wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+          sudo apt update && sudo apt install terraform
+          terraform init
+          terraform plan 
+          terraform apply -auto-approve

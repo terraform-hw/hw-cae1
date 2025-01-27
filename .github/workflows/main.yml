@@ -16,7 +16,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
           git clone https://github.com/terraform-hw/hw-cae1.git
-          #cd hw-create-ecs1
+          cd hw-cae1
           ls -l 
       - name: terraform env 
         run: | 

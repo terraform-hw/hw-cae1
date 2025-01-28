@@ -107,7 +107,7 @@ resource "huaweicloud_cae_component" "test" {
   environment_id = "46dc4388-0383-4f16-b5d0-81bc7e28ad93"
   application_id =  "75e7e682-d7c9-4dde-b5c4-7cd954bbdecb"
   #new add 
-  #count          = 1 
+ # count          = 1 
   deploy_after_create = true
   metadata {
     name = "test01"
@@ -116,13 +116,13 @@ resource "huaweicloud_cae_component" "test" {
       version = "1.0.0"
     }
   }
-  dynamic "configurations" {
-    for_each = count.index == 0 ? local.com1_configurations : []
-    content {
-      type = configurations.value.type
-      data = configurations.value.data
-    }
-  }
+#  dynamic "configurations" {
+#    for_each = count.index == 0 ? local.com1_configurations : []
+#    content {
+ #     type = configurations.value.type
+ #     data = configurations.value.data
+#    }
+ # }
   spec {
     runtime = "Docker"
     replica = 1

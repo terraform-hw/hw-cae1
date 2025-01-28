@@ -106,7 +106,8 @@ locals {
 resource "huaweicloud_cae_component" "test" {
   environment_id = "46dc4388-0383-4f16-b5d0-81bc7e28ad93"
   application_id =  "75e7e682-d7c9-4dde-b5c4-7cd954bbdecb"
-
+  #new add 
+  count = 1 
   metadata {
     name = "test01"
 
@@ -114,7 +115,13 @@ resource "huaweicloud_cae_component" "test" {
       version = "1.0.0"
     }
   }
-
+  dynamic "configurations" {
+    for_each = count.index == 0 ? local.com1_configurations : []
+    content {
+      type = configurations.value.type
+      data = configurations.value.data
+    }
+  }
   spec {
     runtime = "Docker"
     replica = 1
@@ -136,6 +143,7 @@ resource "huaweicloud_cae_component_configurations" "test" {
   environment_id = "46dc4388-0383-4f16-b5d0-81bc7e28ad93"
   application_id =  "75e7e682-d7c9-4dde-b5c4-7cd954bbdecb"
   component_id   = huaweicloud_cae_component.test.id
+
   items {
     type = "lifecycle"
     data = jsonencode({

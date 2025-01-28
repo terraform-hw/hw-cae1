@@ -107,7 +107,8 @@ resource "huaweicloud_cae_component" "test" {
   environment_id = "46dc4388-0383-4f16-b5d0-81bc7e28ad93"
   application_id =  "75e7e682-d7c9-4dde-b5c4-7cd954bbdecb"
   #new add 
-  count = 1 
+  #count          = 1 
+  deploy_after_create = true
   metadata {
     name = "test01"
 
@@ -136,7 +137,7 @@ resource "huaweicloud_cae_component" "test" {
       memory = "1Gi"
     }
   }
-  deploy_after_create = true
+
 }
 
 resource "huaweicloud_cae_component_configurations" "test" {
